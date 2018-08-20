@@ -178,7 +178,13 @@
               </div>
           </div>
       </div>
+      <div class="row text-center">
+      <a href="#" id="load" >Load More</a>
+    </div>
 </div>
+
+
+
 <footer class="footer-distributed">
 
   <div class="container">
@@ -229,6 +235,19 @@ $(document).ready( function typeWriter() {
     i++;
     setTimeout(typeWriter, speed);
   }
+});
+$(function () {
+    $(".polaroid").slice(0, 8).show();
+    $("#load").on('click', function (e) {
+        e.preventDefault();
+        $(".polaroid:hidden").slice(0, 4).slideDown();
+        if ($(".polaroid:hidden").length == 0) {
+            $("#load").fadeOut('slow');
+        }
+        $('html,body').animate({
+            scrollTop: $(this).offset().top
+        }, 1500);
+    });
 });
 </script>
 <!--Start of Tawk.to Script-->
